@@ -12,7 +12,15 @@ class RecipeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(appBarTheme: const AppBarTheme(centerTitle: true)),
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          titleTextStyle: GoogleFonts.poppins(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
       home: const MyHomePage(title: 'Recipe Calculator'),
     );
   }
@@ -74,7 +82,6 @@ Widget buildRecipeCard(Recipe recipe) {
               fontWeight: FontWeight.w600,
             ),
           ),
-          Text("I am Hungry"),
         ],
       ),
     ),
