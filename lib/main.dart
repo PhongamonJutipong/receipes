@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:receipes/Model/recipe.dart';
+import 'package:receipes/recipe-detail.dart';
 
 void main() {
   runApp(const RecipeApp());
@@ -31,10 +32,23 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: Container(
           child: ListView.builder(
-            itemCount: Recipe.samples.length,
-            itemBuilder: (BuildContext context, int index) {
-              return buildRecipeCard(Recipe.samples[index]);
+            itemBuilder: (BuildContext context,int index){
+              return GestureDetector(
+                onTap: (){
+                  print('You tapped on ${Recipe.samples[index].imgLabel}');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Recipedetail(recipe: Recipe.samples[index]);
+                      }
+                    ),
+                  );
+                },
+                child: buildRecipeCard(Recipe.samples[index]),
+              );
             },
+            itemCount: Recipe.samples.length,
           ),
         ),
       ),
@@ -44,11 +58,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
 Widget buildRecipeCard(Recipe recipe) {
   return Card(
-    child: Column(
-      children: <Widget>[
-        Image(image: AssetImage(recipe.imageUrl)),
-        Text(recipe.imgLabel),
-      ],
+    elevation: 2.0,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+    child: Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: <Widget>[
+          Image(image: AssetImage(recipe.imageUrl)),
+          SizedBox(height: 14.0),
+          Text(
+            recipe.imgLabel,
+            style: const TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.w700,
+              fontFamily: 'Palatino',
+            ),
+          ),
+          Text("I am Hungry"),
+        ],
+      ),
     ),
   );
 }
