@@ -3,7 +3,7 @@ class Recipe { //ต้องเหมือนชื่อคลาส
   String imageUrl;   // path ของรูป
   String imgdetail; // รายละเอียดของเมนู
 
-  Recipe(this.imgLabel, this.imageUrl,this.imgdetail);
+  Recipe(this.imgLabel, this.imageUrl, this.imgdetail);
 
   static List<Recipe> samples = [
     Recipe(

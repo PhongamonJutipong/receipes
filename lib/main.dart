@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:receipes/Model/recipe.dart';
 import 'package:receipes/recipe-detail.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const RecipeApp());
@@ -68,10 +69,9 @@ Widget buildRecipeCard(Recipe recipe) {
           SizedBox(height: 14.0),
           Text(
             recipe.imgLabel,
-            style: const TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 20.0,
-              fontWeight: FontWeight.w700,
-              fontFamily: 'Palatino',
+              fontWeight: FontWeight.w600,
             ),
           ),
           Text("I am Hungry"),
