@@ -41,16 +41,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: Container(
           child: ListView.builder(
-            itemBuilder: (BuildContext context,int index){
+            itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
-                onTap: (){
+                onTap: () {
                   print('You tapped on ${Recipe.samples[index].imgLabel}');
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
                         return Recipedetail(recipe: Recipe.samples[index]);
-                      }
+                      },
                     ),
                   );
                 },
